@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=IBM+Plex+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #00d4ff;
-            --secondary: #ff3864;
-            --accent: #7d4cff;
-            --dark: #0a0e1a;
-            --dark-blue: #0f1629;
-            --mid-blue: #1a2238;
-            --text: #e8eef7;
-            --text-dim: #8b95ab;
-            --success: #00ff88;
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #3b82f6;
+            --dark: #0f172a;
+            --dark-blue: #1e293b;
+            --mid-blue: #334155;
+            --text: #f1f5f9;
+            --text-dim: #94a3b8;
+            --border: #475569;
         }
 
         * {
@@ -34,37 +34,28 @@
             line-height: 1.6;
         }
 
-        /* Animated Grid Background */
+        /* Subtle Background */
         .grid-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-blue) 100%);
             pointer-events: none;
             z-index: 0;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
         }
 
         .gradient-orb {
             position: fixed;
-            width: 600px;
-            height: 600px;
+            width: 500px;
+            height: 500px;
             border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.15;
+            filter: blur(120px);
+            opacity: 0.08;
             pointer-events: none;
             z-index: 0;
-            animation: float 20s ease-in-out infinite;
+            animation: float 25s ease-in-out infinite;
         }
 
         .orb-1 {
@@ -228,6 +219,34 @@
             gap: 1.5rem;
             justify-content: center;
             animation: fadeInUp 0.8s ease-out 0.8s both;
+            margin-bottom: 4rem;
+        }
+
+        .about-me {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 2.5rem 3rem;
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .about-me h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .about-me p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: center;
         }
 
         .btn {
@@ -246,14 +265,14 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: var(--dark);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
         }
 
         .btn-secondary {
@@ -451,30 +470,11 @@
             max-width: 800px;
             margin: 0 auto;
             background: linear-gradient(135deg, var(--dark-blue), var(--mid-blue));
-            border: 2px solid var(--primary);
-            border-radius: 20px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             padding: 4rem 3rem;
             position: relative;
             overflow: hidden;
-        }
-
-        .download-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(
-                transparent,
-                rgba(0, 212, 255, 0.1),
-                transparent 30%
-            );
-            animation: rotate 8s linear infinite;
-        }
-
-        @keyframes rotate {
-            100% { transform: rotate(1turn); }
         }
 
         .download-content {
@@ -549,21 +549,23 @@
     <nav>
         <div class="logo">XFOIL ML</div>
         <ul class="nav-links">
-            <li><a href="#features">FEATURES</a></li>
-            <li><a href="#tech">TECHNOLOGY</a></li>
-            <li><a href="#download">DOWNLOAD</a></li>
-            <li><a href="#docs">DOCS</a></li>
+            <li><a href="#about">ABOUT</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <div class="hero-badge">MACHINE LEARNING POWERED</div>
-            <h1>Airfoil Analysis<br>Reimagined</h1>
-            <p class="hero-subtitle">XFOIL precision meets neural network speed. 500x faster calculations with 94%+ accuracy across 440 airfoil geometries.</p>
+            <div class="hero-badge">ADVANCED AERODYNAMIC ANALYSIS</div>
+            <h1>Machine Learning<br>Airfoil Analysis</h1>
+            <p class="hero-subtitle">Professional-grade XFOIL analysis enhanced with neural network predictions for efficient aerodynamic design workflows.</p>
             <div class="cta-buttons">
                 <a href="#download" class="btn btn-primary">DOWNLOAD APP</a>
-                <a href="#features" class="btn btn-secondary">LEARN MORE</a>
+                <a href="#" class="btn btn-secondary">VIEW README</a>
+            </div>
+            
+            <div class="about-me">
+                <h3>About the Developer</h3>
+                <p>XFOIL ML is a project of mine that utilizes the base code from XFOIL and implements machine learning to streamline the airfoil analysis and comparison process.</p>
             </div>
         </div>
     </section>
@@ -571,70 +573,70 @@
     <section class="stats">
         <div class="stats-grid">
             <div class="stat-item">
-                <div class="stat-number">500×</div>
-                <div class="stat-label">FASTER THAN XFOIL</div>
+                <div class="stat-number">440</div>
+                <div class="stat-label">VALIDATED AIRFOILS</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">94%</div>
+                <div class="stat-number">94%+</div>
                 <div class="stat-label">PREDICTION ACCURACY</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">440</div>
-                <div class="stat-label">TRAINING AIRFOILS</div>
+                <div class="stat-number">3</div>
+                <div class="stat-label">COEFFICIENT OUTPUTS</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">OPEN SOURCE</div>
+                <div class="stat-number">PDF</div>
+                <div class="stat-label">REPORT GENERATION</div>
             </div>
         </div>
     </section>
 
-    <section id="features" class="features">
-        <h2 class="section-title">Advanced Capabilities</h2>
-        <p class="section-subtitle">Professional-grade tools for aerospace engineering</p>
+    <section id="about" class="features">
+        <h2 class="section-title">About XFOIL ML</h2>
+        <p class="section-subtitle">Professional aerodynamic analysis enhanced with machine learning</p>
         
         <div class="features-grid">
             <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3 class="feature-title">Lightning Fast Analysis</h3>
-                <p class="feature-description">Neural network predictions deliver aerodynamic coefficients in milliseconds. What took minutes in XFOIL now takes seconds, enabling rapid design iteration.</p>
+                <div class="feature-icon">⚙️</div>
+                <h3 class="feature-title">Efficient Computation</h3>
+                <p class="feature-description">Neural network predictions streamline aerodynamic analysis, reducing computation time while maintaining accuracy for rapid design iteration.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">High Accuracy ML</h3>
-                <p class="feature-description">Trained on 440 diverse NACA airfoils with validated XFOIL data. Achieves 94%+ accuracy for Cl, Cd, and Cm predictions across wide operating conditions.</p>
+                <div class="feature-icon">📐</div>
+                <h3 class="feature-title">Validated ML Models</h3>
+                <p class="feature-description">Trained on XFOIL-validated data across 440 NACA airfoil geometries. Achieves 94%+ accuracy for lift, drag, and moment coefficient predictions.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
-                <h3 class="feature-title">Multi-Airfoil Comparison</h3>
-                <p class="feature-description">Analyze and compare multiple airfoil geometries simultaneously. Visualize performance differences with interactive polar plots and side-by-side metrics.</p>
+                <h3 class="feature-title">Comparative Analysis</h3>
+                <p class="feature-description">Evaluate multiple airfoil geometries simultaneously with interactive visualizations and side-by-side performance comparisons.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🌙</div>
+                <div class="feature-icon">💼</div>
                 <h3 class="feature-title">Professional Interface</h3>
-                <p class="feature-description">Modern dark mode GUI with intuitive controls. Export results to PDF reports or Excel for documentation and further analysis.</p>
+                <p class="feature-description">Clean, modern GUI with intuitive controls for efficient workflow. Export results to PDF or Excel for documentation and reporting.</p>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">📄</div>
-                <h3 class="feature-title">Comprehensive Reporting</h3>
-                <p class="feature-description">Generate publication-ready PDF reports with performance curves, coefficient tables, and airfoil geometry visualizations.</p>
+                <h3 class="feature-title">Technical Reporting</h3>
+                <p class="feature-description">Generate comprehensive PDF reports with performance curves, coefficient tables, and airfoil geometry visualizations.</p>
             </div>
 
             <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3 class="feature-title">Standalone Executable</h3>
-                <p class="feature-description">No Python installation required. Packaged as a single executable for Windows, making deployment and distribution effortless.</p>
+                <div class="feature-icon">💻</div>
+                <h3 class="feature-title">Standalone Application</h3>
+                <p class="feature-description">Self-contained executable requiring no Python installation. Simplified deployment for engineering teams and academic environments.</p>
             </div>
         </div>
     </section>
 
-    <section id="tech" class="tech-stack">
-        <h2 class="section-title">Built With Cutting-Edge Tech</h2>
-        <p class="section-subtitle">Powered by industry-leading frameworks and tools</p>
+    <section class="tech-stack">
+        <h2 class="section-title">Technical Foundation</h2>
+        <p class="section-subtitle">Built on proven aerospace and machine learning frameworks</p>
         
         <div class="tech-grid">
             <div class="tech-item">
@@ -667,23 +669,21 @@
     <section id="download" class="download">
         <div class="download-box">
             <div class="download-content">
-                <h2 class="section-title">Ready to Launch?</h2>
-                <p class="section-subtitle" style="margin-bottom: 2rem;">Download XFOIL ML and accelerate your airfoil design workflow</p>
-                <a href="#" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 3rem;">DOWNLOAD FOR WINDOWS</a>
-                <p style="margin-top: 1.5rem; color: var(--text-dim); font-size: 0.9rem;">Version 1.0 • Free & Open Source • 45MB</p>
+                <h2 class="section-title">Get Started</h2>
+                <p class="section-subtitle" style="margin-bottom: 2rem;">Download XFOIL ML for efficient airfoil analysis</p>
+                <a href="#" class="btn btn-primary" style="font-size: 1.1rem; padding: 1.2rem 3rem;">DOWNLOAD APPLICATION</a>
+                <p style="margin-top: 1.5rem; color: var(--text-dim); font-size: 0.9rem;">Windows • Version 1.0 • 45MB</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-links">
-            <a href="#docs">Documentation</a>
-            <a href="#github">GitHub</a>
-            <a href="#support">Support</a>
-            <a href="#license">License</a>
+            <a href="#about">About</a>
+            <a href="#download">Download</a>
         </div>
         <div class="copyright">
-            © 2024 XFOIL ML • Built for aerospace engineers, by aerospace engineers
+            © 2024 XFOIL ML • Professional Aerodynamic Analysis Software
         </div>
     </footer>
 
